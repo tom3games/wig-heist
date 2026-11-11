@@ -31,7 +31,7 @@ button,a{font:inherit;color:inherit;background:none;border:0;cursor:pointer;touc
 #boot-err{position:fixed;inset:auto 8px 8px 8px;z-index:99;background:#fff;color:#b00;font:12px/1.4 monospace;white-space:pre-wrap;padding:10px;border-radius:6px}
 
 /* ---------- タイトル: 予告状 ---------- */
-#title{display:flex;flex-direction:column;align-items:center;padding:max(26px,env(safe-area-inset-top)) 16px max(12px,env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(5,8,18,.55) 0%,rgba(5,8,18,0) 40%,rgba(5,8,18,0) 55%,rgba(5,8,18,.8) 100%)}
+#title{display:flex;flex-direction:column;align-items:center;padding:max(26px,env(safe-area-inset-top)) 16px max(12px,calc(env(safe-area-inset-bottom) + var(--inapp-bot,0px)));background:linear-gradient(180deg,rgba(5,8,18,.55) 0%,rgba(5,8,18,0) 40%,rgba(5,8,18,0) 55%,rgba(5,8,18,.8) 100%)}
 .card{position:relative;margin-top:min(5svh,40px);width:min(330px,84vw);padding:18px 22px 16px 24px;background:var(--paper);color:#1a1712;transform:rotate(-2.2deg);box-shadow:0 14px 40px rgba(0,0,0,.6),0 0 0 1px rgba(0,0,0,.15);font-family:var(--min)}
 .card::before{content:'';position:absolute;inset:7px;border:1.5px solid rgba(26,23,18,.55);pointer-events:none}
 .card::after{content:'';position:absolute;right:-10px;top:24px;width:46px;height:16px;background:rgba(220,210,180,.7);transform:rotate(28deg)}
@@ -110,7 +110,7 @@ html[lang=en] .c-body{font-size:min(6.2vw,25px)}
 .eye>i{display:block;width:90px;height:5px;background:rgba(0,0,0,.5);box-shadow:0 0 0 1px rgba(255,240,200,.4)}
 .eye>i>i{display:block;height:100%;background:linear-gradient(90deg,#fff2c8,var(--red));transform-origin:0 50%;transform:scaleX(0)}
 /* 話し手の一言（相棒＝水色・市長＝琥珀の防災無線）: 画面の下、操作の上 */
-.say{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(max(16px,env(safe-area-inset-bottom)) + 128px);width:max-content;max-width:min(520px,calc(100% - 40px));font-size:15px;line-height:1.4;color:#eaf6ff;background:rgba(6,12,24,.84);padding:6px 12px;text-align:left;box-shadow:0 3px 12px rgba(0,0,0,.4);word-break:keep-all;overflow-wrap:anywhere;border-left:3px solid var(--cyan)}
+.say{position:absolute;left:50%;transform:translateX(-50%);bottom:calc(max(16px,calc(env(safe-area-inset-bottom) + var(--inapp-bot,0px))) + 128px);width:max-content;max-width:min(520px,calc(100% - 40px));font-size:15px;line-height:1.4;color:#eaf6ff;background:rgba(6,12,24,.84);padding:6px 12px;text-align:left;box-shadow:0 3px 12px rgba(0,0,0,.4);word-break:keep-all;overflow-wrap:anywhere;border-left:3px solid var(--cyan)}
 .say small{display:inline-block;margin-right:.7em;font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--cyan);vertical-align:1px}
 .say.mayor{border-left-color:#ffb040;color:#fff1dc}
 .say.mayor small{color:#ffb040}
@@ -139,12 +139,12 @@ html[lang=en] .c-body{font-size:min(6.2vw,25px)}
 /* スマホ操作 */
 .touch{position:absolute;inset:0;pointer-events:none}
 .stickzone{position:absolute;left:0;bottom:0;width:46%;height:62%;pointer-events:none}
-.stick{position:absolute;left:calc(max(16px,env(safe-area-inset-left)) + 62px);top:calc(100% - max(16px,env(safe-area-inset-bottom)) - 62px);width:124px;height:124px;margin:-62px 0 0 -62px;border-radius:50%;border:2px solid rgba(238,240,246,.38);background:rgba(8,12,24,.35);opacity:.7;pointer-events:auto;touch-action:none}
+.stick{position:absolute;left:calc(max(16px,env(safe-area-inset-left)) + 62px);top:calc(100% - max(16px,calc(env(safe-area-inset-bottom) + var(--inapp-bot,0px))) - 62px);width:124px;height:124px;margin:-62px 0 0 -62px;border-radius:50%;border:2px solid rgba(238,240,246,.38);background:rgba(8,12,24,.35);opacity:.7;pointer-events:auto;touch-action:none}
 .stick::before{content:'';position:absolute;inset:-24px;border-radius:50%}
 .stick.held{opacity:1}
 .stick .knob{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:rgba(238,240,246,.82)}
 .tbtn{position:absolute;pointer-events:auto;width:66px;height:66px;border-radius:50%;background:rgba(8,12,24,.55);border:2px solid rgba(238,240,246,.55);color:#fff;font-weight:700;font-size:14px;touch-action:none;display:flex;align-items:center;justify-content:center}
-.tbtn[data-k=wire]{right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));width:104px;height:104px;background:rgba(20,90,110,.5);border-color:rgba(127,246,255,.9);color:#e8feff}
+.tbtn[data-k=wire]{right:max(16px,env(safe-area-inset-right));bottom:max(16px,calc(env(safe-area-inset-bottom) + var(--inapp-bot,0px)));width:104px;height:104px;background:rgba(20,90,110,.5);border-color:rgba(127,246,255,.9);color:#e8feff}
 .tbtn[data-k=wire] svg{width:54px;height:54px}
 .tbtn[data-k=wire].aim{box-shadow:0 0 0 3px rgba(255,255,255,.85),0 0 18px rgba(127,246,255,.85)}
 .tbtn[data-k=wire].kick{background:rgba(232,38,46,.6);border-color:#fff;box-shadow:0 0 0 3px #fff,0 0 22px rgba(255,80,80,.9)}
@@ -152,7 +152,7 @@ html[lang=en] .c-body{font-size:min(6.2vw,25px)}
 .tbtn:active{transform:scale(.94)}
 
 /* ---------- 結果 ---------- */
-#result{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 16px max(10px,env(safe-area-inset-bottom));background:rgba(5,8,18,.8)}
+#result{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:max(10px,env(safe-area-inset-top)) 16px max(10px,calc(env(safe-area-inset-bottom) + var(--inapp-bot,0px)));background:rgba(5,8,18,.8)}
 .slip-wrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;width:100%}
 #slip{max-width:100%;max-height:100%;width:auto;height:100%;aspect-ratio:1080/1350;object-fit:contain}
 .result-actions{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:center;color:#fff}
